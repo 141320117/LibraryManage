@@ -1,0 +1,1 @@
+insert into manager values('141320117','141320117');

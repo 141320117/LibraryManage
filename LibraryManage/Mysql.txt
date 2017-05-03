@@ -1,0 +1,70 @@
+create database LibraryManage
+CHARACTER SET 'utf8'  
+COLLATE 'utf8_general_ci';  
+
+use LibraryManage;
+
+create table manager(
+username varchar(20) not null,
+password varchar(20) not null,
+primary key(username)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table book(
+book_id bigint primary key auto_increment,
+book_name varchar(40) not null,
+subject varchar(20) not null,
+writer varchar(20) not null,
+publish_unit varchar(40),
+publish_place varchar(60),
+publish varchar(20)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table journal(
+journal_id bigint primary key auto_increment,
+journal_name varchar(40) not null,
+subject varchar(20) not null,
+writer varchar(20) not null,
+publish_unit varchar(40),
+publish_place varchar(60),
+publish varchar(20)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table reader(
+reader_id bigint primary key auto_increment,
+reader_name varchar(20) not null,
+sex varchar(2),
+id_card varchar(20) not null,
+phone varchar(11) not null
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table book_borrow(
+borrow_id bigint primary key auto_increment,
+book_id bigint not null,
+reader_id bigint not null,
+borrow_date date not null,
+status varchar(10) not null,
+foreign key(book_id) references book(book_id) ON DELETE CASCADE ON UPDATE CASCADE,
+foreign key(reader_id) reference reader(reader_id) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table journal_borrow(
+borrow_id bigint primary key auto_increment,
+journal_id bigint not null,
+reader_id bigint not null,
+borrow_date date not null,
+status varchar(10) not null,
+foreign key(journal_id) references book(journal_id) ON DELETE CASCADE ON UPDATE CASCADE,
+foreign key(reader_id) reference reader(reader_id) ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table rule(
+book_unit varchar(10) not null,
+book_reback int not null,
+book_overdue int not null,
+book_lost int not null,
+journal_unit varchar(10) not null,
+journal_reback int not null,
+journal_overdue int not null,
+journal_lost int not null,
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;

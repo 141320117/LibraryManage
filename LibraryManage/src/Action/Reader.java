@@ -31,6 +31,7 @@ public class Reader extends ActionSupport{
 	}
 	public void setReader_name(String reader_name){
 		this.reader_name=reader_name;
+		System.out.println(reader_name);
 	}
 	public void setSex(String sex){
 		this.sex=sex;
