@@ -3,7 +3,6 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 
@@ -31,7 +30,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <script src="http://v3.bootcss.com/assets/js/docs.min.js"></script>
 
   <script>
- 		 function manage_show(str){
+    function manage_show_small(str){
+      document.getElementById("book_manage").style.display="none";
+      document.getElementById("journal_manage").style.display="none";
+      document.getElementById("reader_manage").style.display="none";
+      document.getElementById("borrow_manage").style.display="none";
+      document.getElementById("book_manage_div").style.display="none";
+      document.getElementById("journal_manage_div").style.display="none";
+      document.getElementById("reader_manage_div").style.display="none";
+      document.getElementById("borrow_manage_div").style.display="none";
 			document.getElementById("book_search").style.display="none";
 			document.getElementById("book_borrow").style.display="none";
 			document.getElementById("book_reback").style.display="none";
@@ -48,40 +55,104 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			//document.getElementById("borrow_count").style.display="none";
 			//document.getElementById("borrow_rank").style.display="none";
 			if(str=="book_manage"){
-				document.getElementById("book_search").style.display="block";
-				document.getElementById("book_borrow").style.display="block";
-				document.getElementById("book_reback").style.display="block";
-				document.getElementById("book_add").style.display="block";
-				document.getElementById("book_del").style.display="block";
+        document.getElementById("book_manage_div").style.display="block";
+        document.getElementById("book_manage").style.display="block";
+        document.getElementById("book_search").style.display="block";
+  			document.getElementById("book_borrow").style.display="block";
+  			document.getElementById("book_reback").style.display="block";
+  			document.getElementById("book_add").style.display="block";
+  			document.getElementById("book_del").style.display="block";
+        document.getElementById("menu_small").click();
+
 			}else if(str=="journal_manage"){
-				document.getElementById("journal_search").style.display="block";
-				document.getElementById("journal_borrow").style.display="block";
-				document.getElementById("journal_reback").style.display="block";
-				document.getElementById("journal_add").style.display="block";
-				document.getElementById("journal_del").style.display="block";
+        document.getElementById("journal_manage_div").style.display="block";
+        document.getElementById("journal_manage").style.display="block";
+        document.getElementById("journal_search").style.display="block";
+  			document.getElementById("journal_borrow").style.display="block";
+  			document.getElementById("journal_reback").style.display="block";
+  			document.getElementById("journal_add").style.display="block";
+  			document.getElementById("journal_del").style.display="block";
+        document.getElementById("menu_small").click();
+
 			}else if(str=="reader_manage"){
-				document.getElementById("reader_search").style.display="block";
-				document.getElementById("reader_add").style.display="block";
-				document.getElementById("reader_del").style.display="block";
+        document.getElementById("reader_manage_div").style.display="block";
+        document.getElementById("reader_manage").style.display="block";
+        document.getElementById("reader_search").style.display="block";
+  			document.getElementById("reader_add").style.display="block";
+  			document.getElementById("reader_del").style.display="block";
+        document.getElementById("menu_small").click();
+
 			}else if(str=="borrow_manage"){
-				document.getElementById("borrow_count").style.display="block";
-				document.getElementById("borrow_rank").style.display="block";
+        document.getElementById("borrow_manage_div").style.display="block";
+        document.getElementById("borrow_manage").style.display="block";
+        document.getElementById("menu_small").click();
+
+			}
+    }
+ 		 function manage_show(str){
+      document.getElementById("book_manage").style.display="none";
+      document.getElementById("journal_manage").style.display="none";
+      document.getElementById("reader_manage").style.display="none";
+      document.getElementById("borrow_manage").style.display="none";
+      document.getElementById("book_manage_div").style.display="none";
+      document.getElementById("journal_manage_div").style.display="none";
+      document.getElementById("reader_manage_div").style.display="none";
+      document.getElementById("borrow_manage_div").style.display="none";
+      document.getElementById("book_manage_menu").className="none";
+      document.getElementById("journal_manage_menu").className="none";
+      document.getElementById("reader_manage_menu").className="none";
+      document.getElementById("borrow_manage_menu").className="none";
+			document.getElementById("book_search").style.display="none";
+			document.getElementById("book_borrow").style.display="none";
+			document.getElementById("book_reback").style.display="none";
+			document.getElementById("book_add").style.display="none";
+			document.getElementById("book_del").style.display="none";
+			document.getElementById("journal_search").style.display="none";
+			document.getElementById("journal_borrow").style.display="none";
+			document.getElementById("journal_reback").style.display="none";
+			document.getElementById("journal_add").style.display="none";
+			document.getElementById("journal_del").style.display="none";
+			document.getElementById("reader_search").style.display="none";
+			document.getElementById("reader_add").style.display="none";
+			document.getElementById("reader_del").style.display="none";
+			//document.getElementById("borrow_count").style.display="none";
+			//document.getElementById("borrow_rank").style.display="none";
+			if(str=="book_manage"){
+        document.getElementById("book_manage_div").style.display="block";
+        document.getElementById("book_manage").style.display="block";
+        document.getElementById("book_manage_menu").className="active";
+
+			}else if(str=="journal_manage"){
+        document.getElementById("journal_manage_div").style.display="block";
+        document.getElementById("journal_manage").style.display="block";
+        document.getElementById("journal_manage_menu").className="active";
+
+			}else if(str=="reader_manage"){
+        document.getElementById("reader_manage_div").style.display="block";
+        document.getElementById("reader_manage").style.display="block";
+        document.getElementById("reader_manage_menu").className="active";
+
+			}else if(str=="borrow_manage"){
+        document.getElementById("borrow_manage_div").style.display="block";
+        document.getElementById("borrow_manage").style.display="block";
+        document.getElementById("borrow_manage_menu").className="active";
+
 			}
 		}
 		function feature_show(str){
-			document.getElementById("Book_search").style.display="none";
-			document.getElementById("Book_borrow").style.display="none";
-			document.getElementById("Book_reback").style.display="none";
-			document.getElementById("Book_add").style.display="none";
-			document.getElementById("Book_del").style.display="none";
-			document.getElementById("Journal_search").style.display="none";
-			document.getElementById("Journal_borrow").style.display="none";
-			document.getElementById("Journal_reback").style.display="none";
-			document.getElementById("Journal_add").style.display="none";
-			document.getElementById("Journal_del").style.display="none";
-			document.getElementById("Reader_search").style.display="none";
-			document.getElementById("Reader_add").style.display="none";
-			document.getElementById("Reader_del").style.display="none";
+			document.getElementById("book_search").style.display="none";
+			document.getElementById("book_borrow").style.display="none";
+			document.getElementById("book_reback").style.display="none";
+			document.getElementById("book_add").style.display="none";
+			document.getElementById("book_del").style.display="none";
+			document.getElementById("journal_search").style.display="none";
+			document.getElementById("journal_borrow").style.display="none";
+			document.getElementById("journal_reback").style.display="none";
+			document.getElementById("journal_add").style.display="none";
+			document.getElementById("journal_del").style.display="none";
+			document.getElementById("reader_search").style.display="none";
+			document.getElementById("reader_add").style.display="none";
+			document.getElementById("reader_del").style.display="none";
 			//document.getElementById("Borrow_count").style.display="none";
 			//document.getElementById("Borrow_rank").style.display="none";
 			document.getElementById(str).style.display="block";
@@ -92,7 +163,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     {
       position:relative;
       height:100%;
-      overflow-y:visible;
+
     }
     .backtotop/*移动端用来返回顶部的浮动按钮样式div*/
     {
@@ -112,7 +183,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="navbar-header"> <a class="navbar-brand" style="font-size:3rem;color:black">系统管理</a> </div>
           </div>
           <div class="col-sm-2 col-xs-1 hidden-lg hidden-md">
-            <span class="glyphicon glyphicon-menu-hamburger" style="font-size:3rem;margin-top:0.8rem"data-toggle="collapse" data-target="#smallmenu"></span>
+            <span id="menu_small" class="glyphicon glyphicon-menu-hamburger" style="font-size:3rem;margin-top:0.8rem"data-toggle="collapse" data-target="#smallmenu"></span>
           </div>
           <div class="col-md-3 col-md-offset-6 col-lg-3 col-lg-offset-6 col-sm-2 col-sm-offset-2 col-xs-2 col-xs-offset-1">
             <button type="button" class="btn btn-default navbar-btn navbar-right">
@@ -124,10 +195,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </header>
   </div>
   <div class="hidden-lg hidden-md collapse" id="smallmenu">
-    <a href="#book_manage" class="list-group-item">图书管理</a>
-    <a href="#journal_manage" class="list-group-item">期刊管理</a>
-    <a href="#reader_manage" class="list-group-item">读者管理</a>
-    <a href="#borrow_manage" class="list-group-item">借阅管理</a>
+    <a href="javascript:;" onclick="manage_show_small('book_manage');" class="list-group-item">图书管理</a>
+    <a href="javascript:;" onclick="manage_show_small('journal_manage');" class="list-group-item">期刊管理</a>
+    <a href="javascript:;" onclick="manage_show_small('reader_manage');" class="list-group-item">读者管理</a>
+    <a href="javascript:;" onclick="manage_show_small('borrow_manage');" class="list-group-item">借阅管理</a>
   </div>
   <div class="">
     <div class="bs-docs-header">
@@ -170,40 +241,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <div id="menu" class="col-md-3" role="complementary">
         <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
           <ul class="nav bs-docs-sidenav">
-            <li>
-	            <input type="button" id="book_manage" value="图书管理" onclick="manage_show('book_manage')">
-				<input type="button" id="book_search" value="图书查询" style="display:none;" onclick="feature_show('Book_search')">
-		    	<input type="button" id="book_borrow" value="图书借阅" style="display:none;" onclick="feature_show('Book_borrow')">
-		    	<input type="button" id="book_reback" value="图书归还" style="display:none;" onclick="feature_show('Book_reback')">
-		    	<input type="button" id="book_add" value="添加新书" style="display:none;" onclick="feature_show('Book_add')">
-		    	<input type="button" id="book_del" value="书籍注销" style="display:none;" onclick="feature_show('Book_del')">
+            <li id="book_manage_menu" class=""> <a href="javascript:;" onclick="manage_show('book_manage');" style="font-size:20px" class="">图书管理</a>
+              <ul class="nav">
+                <li><a  style="font-size:15px" href="javascript:;" onclick="feature_show('book_search');">图书查询</a></li>
+                <li><a style="font-size:15px" href="javascript:;" onclick="feature_show('book_borrow');">图书借阅</a></li>
+                <li><a style="font-size:15px" href="javascript:;" onclick="feature_show('book_return');">图书归还</a></li>
+                <li><a style="font-size:15px" href="javascript:;" onclick="feature_show('book_add');">添加新书</a></li>
+                <li><a style="font-size:15px" href="javascript:;" onclick="feature_show('book_del');">书籍注销</a></li>
+              </ul>
             </li>
-            <li>
-            	<input type="button" id="journal_manage" value="期刊管理" onclick="manage_show('journal_manage')">
-		    	<input type="button" id="journal_search" value="期刊查询" style="display:none;" onclick="feature_show('Journal_search')">
-		    	<input type="button" id="journal_borrow" value="期刊借阅" style="display:none;" onclick="feature_show('Journal_borrow')">
-		    	<input type="button" id="journal_reback" value="期刊归还" style="display:none;" onclick="feature_show('Journal_reback')">
-		    	<input type="button" id="journal_add" value="添加期刊" style="display:none;" onclick="feature_show('Journal_add')">
-		    	<input type="button" id="journal_del" value="期刊注销" style="display:none;" onclick="feature_show('Journal_del')">
+            <li id="journal_manage_menu" class=""> <a href="javascript:;" onclick="manage_show('journal_manage');" style="font-size:20px">期刊管理</a>
+              <ul class="nav">
+                <li><a style="font-size:15px" href="javascript:;" onclick="feature_show('journal_search');">期刊查询</a></li>
+                <li><a style="font-size:15px" href="javascript:;" onclick="feature_show('journal_borrow');">期刊借阅</a></li>
+                <li><a style="font-size:15px" href="javascript:;" onclick="feature_show('journal_return');">期刊归还</a></li>
+                <li><a style="font-size:15px" href="javascript:;" onclick="feature_show('journal_add');">添加期刊</a></li>
+                <li><a style="font-size:15px" href="javascript:;" onclick="feature_show('journal_del');">期刊注销</a></li>
+              </ul>
             </li>
-            <li>
-	            <input type="button" id="reader_manage" value="读者管理" onclick="manage_show('reader_manage')">
-		    	<input type="button" id="reader_search" value="读者查询" style="display:none;" onclick="feature_show('Reader_search')">
-		    	<input type="button" id="reader_add" value="添加读者" style="display:none;" onclick="feature_show('Reader_add')">
-		    	<input type="button" id="reader_del" value="注销读者" style="display:none;" onclick="feature_show('Reader_del')">
+            <li id="reader_manage_menu" class=""> <a href="javascript:;" onclick="manage_show('reader_manage');" style="font-size:20px">读者管理</a>
+              <ul class="nav">
+                <li><a style="font-size:15px" href="javascript:;" onclick="feature_show('reader_search');">读者查询</a></li>
+                <li><a style="font-size:15px" href="javascript:;" onclick="feature_show('reader_add');">读者添加</a></li>
+                <li><a style="font-size:15px" href="javascript:;" onclick="feature_show('reader_del');">读者删除</a></li>
+              </ul>
             </li>
-            <li>
-            	<input type="button" id="borrow_manage" value="借阅管理" onclick="feature_show('borrow_manage')">
+            <li id="borrow_manage_menu" class=""> <a href="javascript:;" onclick="manage_show('borrow_manage');" style="font-size:20px">借阅管理</a>
+              <ul class="nav">
+
+              </ul>
             </li>
-          </ul></nav>
+          </ul>
+         </nav>
        </div>
-       <div class="col-md-9 scroll" data-spy="scroll" data-target="#menu" role="main">
-        <div class="bs-docs-section">
-          <h1 id="book_manage" class="page-header"> 图书管理 </h1>
-          <p class="lead"> 对图书进行管理等操作 </p>
-          <div id="Book_search" style="display:none;">
-          	<h2 id="book_search" style="font-weight: 400"> 图书查询 </h2>
-            <form class="form-horizontal" action="Book_search" method="post">
+       <div class="col-md-9" role="main">
+        <div class="bs-docs-section" id="book_manage_div" style="display:none;">
+          <h1 id="book_manage" class="page-header" style="display:none;"> 图书管理 </h1>
+          <div id="book_search" style="display:none;">
+            <h2 style="font-weight: 400"> 图书查询 </h2>
+            <form class="form-horizontal" action="Book_search">
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:35px">书名:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="book_name" placeholder="书名" style="background-color:transparent; border-width:1;"> </div>
@@ -211,7 +287,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2  col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:35px">类别:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <select name="book_kind" class="form-control">
+                  <select name="book_subject" class="form-control">
 								   <option value="science">科学</option>
 								   <option value="computer">计算机</option>
 								   <option value="math">数学</option>
@@ -226,29 +302,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </div>
             </form>
           </div>
-          <div id="Book_borrow" style="display:none;">
-          	<h2 id="book_borrow" style="font-weight: 400"> 图书借阅 </h2>
-            <form class="form-horizontal" action="Book_borrow" method="post">
+
+          <div id="book_borrow" style="display:none;">
+            <h2 style="font-weight: 400"> 图书借阅 </h2>
+            <form class="form-horizontal" action="Book_borrow">
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">图书编号:</p></div>
-                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="book_name" placeholder="图书编号" style="background-color:transparent; border-width:1;"> </div>
+                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="book_id" placeholder="图书编号" style="background-color:transparent; border-width:1;"> </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
-                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">图书类别:</p></div>
+                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">图书名称:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <input type="text" class="form-control" name="book_name" placeholder="图书类别" style="background-color:transparent; border-width:1;">
+                  <input type="text" class="form-control" name="book_name" placeholder="图书名称" style="background-color:transparent; border-width:1;">
                 </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">读者编号:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <input type="text" class="form-control" name="book_name" placeholder="读者编号" style="background-color:transparent; border-width:1;">
+                  <input type="text" class="form-control" name="reader_id" placeholder="读者编号" style="background-color:transparent; border-width:1;">
                 </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">读者姓名:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <input type="text" class="form-control" name="book_name" placeholder="读者姓名" style="background-color:transparent; border-width:1;">
+                  <input type="text" class="form-control" name="reader_name" placeholder="读者姓名" style="background-color:transparent; border-width:1;">
                 </div>
               </div>
               <div class="form-group">
@@ -256,17 +333,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </div>
             </form>
           </div>
-          <div id="Book_reback" style="display:none;">
-          	<h2 id="book_reback" style="font-weight: 400"> 图书归还 </h2>
-            <form class="form-horizontal" action="Book_return" method="post">
+
+          <div id="book_reback" style="display:none;">
+            <h2 style="font-weight: 400"> 图书归还 </h2>
+            <form class="form-horizontal" action="Book_reback">
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">图书编号:</p></div>
-                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="book_id" placeholder="图书编号" style="background-color:transparent; border-width:1;"> </div>
+                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" cbacklass="form-control" name="book_id" placeholder="图书编号" style="background-color:transparent; border-width:1;"> </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
-                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">图书书名:</p></div>
+                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">图书名称:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <input type="text" class="form-control" name="book_name" placeholder="图书书名" style="background-color:transparent; border-width:1;">
+                  <input type="text" class="form-control" name="book_name" placeholder="图书名称" style="background-color:transparent; border-width:1;">
                 </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
@@ -286,12 +364,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </div>
             </form>
           </div>
-          <div id="Book_add" style="display:none;">
-          	<h2 id="book_add" style="font-weight: 400"> 添加新书 </h2>
-            <form class="form-horizontal" action="Book_add" method="post">
+
+          <div id="book_add" style="display:none;">
+            <h2 style="font-weight: 400"> 添加新书 </h2>
+            <form class="form-horizontal" action="Book_add">
               <div class="form-group" style="margin-bottom:5px">
-                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:35px">书名:</p></div>
-                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="book_name" placeholder="书名" style="background-color:transparent; border-width:1;"> </div>
+                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:35px">图书名称:</p></div>
+                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="book_name" placeholder="图书名称" style="background-color:transparent; border-width:1;"> </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:35px">类别:</p></div>
@@ -320,43 +399,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </div>
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">出版日期:</p></div>
-                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="publish_data" placeholder="出版日期" style="background-color:transparent; border-width:1;"> </div>
+                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="publish_date" placeholder="出版日期" style="background-color:transparent; border-width:1;"> </div>
               </div>
               <div class="form-group">
                   <div class="col-md-offset-2 col-md-5 col-lg-offset-2 col-lg-5 col-sm-offset-5 col-sm-7 col-xs-offset-5 col-xs-7"> <button type="submit" class="btn" style="width:100%">添加</button> </div>
               </div>
             </form>
           </div>
-          <div id="Book_del" style="display:none;">
-          	<h2 id="book_del" style="font-weight: 400"> 书籍注销 </h2>
-            <form class="form-horizontal" action="Book_add" method="post">
-          <div class="form-group" style="margin-bottom:5px">
-            <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">图书编号:</p></div>
-            <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="book_id" placeholder="图书编号" style="background-color:transparent; border-width:1;"> </div>
+
+          <div id="book_del" style="display:none;">
+            <h2 style="font-weight: 400"> 书籍注销 </h2>
+            <form class="form-horizontal" action="Book_del">
+              <div class="form-group" style="margin-bottom:5px">
+                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">图书编号:</p></div>
+                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="book_id" placeholder="图书编号" style="background-color:transparent; border-width:1;"> </div>
+              </div>
+              <div class="form-group" style="margin-bottom:5px">
+                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">图书名称:</p></div>
+                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="book_name" placeholder="图书名称" style="background-color:transparent; border-width:1;"> </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-offset-2 col-md-5 col-lg-offset-2 col-lg-5 col-sm-offset-5 col-sm-7 col-xs-offset-5 col-xs-7"> <button type="submit" class="btn" style="width:100%">删除</button> </div>
+              </div>
+
+            </form>
           </div>
-          <div class="form-group" style="margin-bottom:5px">
-            <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">图书名称:</p></div>
-            <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="book_name" placeholder="图书名称" style="background-color:transparent; border-width:1;"> </div>
-          </div>
-          <div class="form-group">
-              <div class="col-md-offset-2 col-md-5 col-lg-offset-2 col-lg-5 col-sm-offset-5 col-sm-7 col-xs-offset-5 col-xs-7"> <button type="submit" class="btn" style="width:100%">删除</button> </div>
-          </div>
-            </div>
-          </form>
         </div>
-        <div class="bs-docs-section">
-          <h1 id="journal_manage" class="page-header"> 期刊管理 </h1>
-          <div id="Journal_search" style="display:none;">
-          	<h2 id="journal_search" style="font-weight: 400"> 期刊查询 </h2>
-            <form class="form-horizontal" action="Journal_search" method="post">
+        <div class="bs-docs-section" id="journal_manage_div" style="display:none;">
+          <h1 id="journal_manage" class="page-header" style="display:none;"> 期刊管理 </h1>
+
+          <div id="journal_search" style="display:none;">
+            <h2 style="font-weight: 400"> 期刊查询 </h2>
+            <form class="form-horizontal" action="Journal_search">
               <div class="form-group" style="margin-bottom:5px">
                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊名称:</p></div>
-               <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="journal_subject" placeholder="期刊名称" style="background-color:transparent; border-width:1;"> </div>
+               <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="journal_name" placeholder="期刊名称" style="background-color:transparent; border-width:1;"> </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊类别:</p></div>
                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                 <select name="journal_kind" class="form-control">
+                 <select name="journal_subject" class="form-control">
                   <option value="science">科学</option>
                   <option value="computer">计算机</option>
                   <option value="math">数学</option>
@@ -372,17 +454,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             </form>
           </div>
-          <div id="Journal_borrow" style="display:none;">
-          	<h2 id="journal_borrow" style="font-weight: 400"> 期刊借阅 </h2>
-            <form class="form-horizontal" action="Journal_borrow" method="post">
+
+          <div id="journal_borrow" style="display:none;">
+            <h2 style="font-weight: 400"> 期刊借阅 </h2>
+            <form class="form-horizontal" action="Journal_borrow">
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊编号:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="journal_id" placeholder="期刊编号" style="background-color:transparent; border-width:1;"> </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
-                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊刊名:</p></div>
+                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊名称:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <input type="text" class="form-control" name="journal_name" placeholder="期刊刊名" style="background-color:transparent; border-width:1;">
+                  <input type="text" class="form-control" name="journal_name" placeholder="期刊名称" style="background-color:transparent; border-width:1;">
                 </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
@@ -402,17 +485,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </div>
             </form>
           </div>
-          <div id="Journal_reback" style="display:none;">
-          	<h2 id="journal_reback" style="font-weight: 400"> 期刊归还 </h2>
-            <form class="form-horizontal" action="Journal_return" method="post">
+
+          <div id="journal_reback" style="display:none;">
+            <h2 style="font-weight: 400"> 期刊归还 </h2>
+            <form class="form-horizontal" action="Journal_reback">
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊编号:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="journal_id" placeholder="期刊编号" style="background-color:transparent; border-width:1;"> </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
-                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊刊名:</p></div>
+                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊名称:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <input type="text" class="form-control" name="journal_name" placeholder="期刊刊名" style="background-color:transparent; border-width:1;">
+                  <input type="text" class="form-control" name="journal_name" placeholder="期刊名称" style="background-color:transparent; border-width:1;">
                 </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
@@ -432,12 +516,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </div>
             </form>
           </div>
-          <div id="Journal_add" style="display:none;">
-          	<h2 id="journal_add" style="font-weight: 400"> 期刊添加 </h2>
-            <form class="form-horizontal" action="Journal_add" method="post">
+
+          <div id="journal_add" style="display:none;">
+            <h2 style="font-weight: 400"> 期刊添加 </h2>
+            <form class="form-horizontal" action="Journal_add">
               <div class="form-group" style="margin-bottom:5px">
-                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊刊名:</p></div>
-                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="journal_name" placeholder="期刊刊名" style="background-color:transparent; border-width:1;"> </div>
+                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊名称:</p></div>
+                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="journal_name" placeholder="期刊名称" style="background-color:transparent; border-width:1;"> </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊类别:</p></div>
@@ -453,8 +538,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
-                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊著者:</p></div>
-                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="writer" placeholder="期刊著者" style="background-color:transparent; border-width:1;"> </div>
+                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">著者:</p></div>
+                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="writer" placeholder="著者" style="background-color:transparent; border-width:1;"> </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">出版单位:</p></div>
@@ -466,23 +551,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </div>
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">出版日期:</p></div>
-                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="publish_data" placeholder="出版日期" style="background-color:transparent; border-width:1;"> </div>
+                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="publish_date" placeholder="出版日期" style="background-color:transparent; border-width:1;"> </div>
               </div>
               <div class="form-group">
                   <div class="col-md-offset-2 col-md-5 col-lg-offset-2 col-lg-5 col-sm-offset-5 col-sm-7 col-xs-offset-5 col-xs-7"> <button type="submit" class="btn" style="width:100%">添加</button> </div>
               </div>
             </form>
           </div>
-          <div id="Journal_del" style="display:none;">
-          	<h2 id="journal_del" style="font-weight: 400"> 期刊注销 </h2>
-            <form class="form-horizontal" action="Journal_del" method="post">
+
+          <div id="journal_del" style="display:none;">
+            <h2 style="font-weight: 400"> 期刊注销 </h2>
+            <form class="form-horizontal" action="Journal_del">
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊编号:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="journal_id" placeholder="期刊编号" style="background-color:transparent; border-width:1;"> </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
-                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊刊名:</p></div>
-                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="journal_name" placeholder="期刊刊名" style="background-color:transparent; border-width:1;"> </div>
+                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊名称:</p></div>
+                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="journal_name" placeholder="期刊名称" style="background-color:transparent; border-width:1;"> </div>
               </div>
               <div class="form-group">
                 <div class="col-md-offset-2 col-md-5 col-lg-offset-2 col-lg-5 col-sm-offset-5 col-sm-7 col-xs-offset-5 col-xs-7"> <button type="submit" class="btn" style="width:100%">删除</button> </div>
@@ -490,11 +576,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </form>
           </div>
         </div>
-        <div class="bs-docs-section">
-          <h1 id="reader_manage" class="page-header"> 读者管理 </h1>
-          <div id="Reader_search" style="display:none;">
-          	<h2 id="reader_search" style="font-weight: 400"> 读者查询 </h2>
-            <form class="form-horizontal" action="Reader_search" method="post">
+        <div class="bs-docs-section" id="reader_manage_div" style="display:none;">
+          <h1 id="reader_manage" class="page-header" style="display:none;"> 读者管理 </h1>
+
+          <div id="reader_search" style="display:none;">
+            <h2 style="font-weight: 400"> 读者查询 </h2>
+            <form class="form-horizontal" action="Reader_search">
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">读者编号:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
@@ -512,19 +599,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </div>
             </form>
           </div>
-          <div id="Reader_add" style="display:none;">
-          	<h2 id="reader_add" style="font-weight: 400"> 读者添加 </h2>
-            <form class="form-horizontal" action="Reader_add" method="post">
+
+          <div id="reader_add" style="display:none;">
+            <h2 style="font-weight: 400"> 读者添加 </h2>
+            <form class="form-horizontal" action="Reader_add">
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">读者姓名:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <input type="text" class="form-control" name="reader_id" placeholder="读者编号" style="background-color:transparent; border-width:1;">
+                  <input type="text" class="form-control" name="reader_name" placeholder="读者姓名" style="background-color:transparent; border-width:1;">
                 </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">读者性别:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <select name="journal_subject" class="form-control">
+                  <select name="sex" class="form-control">
                    <option value="science">男</option>
                    <option value="computer">女</option>
                   </select>
@@ -533,13 +621,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">身份证号:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <input type="text" class="form-control" name="reader_name" placeholder="身份证号" style="background-color:transparent; border-width:1;">
+                  <input type="text" class="form-control" name="id_card" placeholder="身份证号" style="background-color:transparent; border-width:1;">
                 </div>
               </div>
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">电话:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <input type="text" class="form-control" name="reader_name" placeholder="电话" style="background-color:transparent; border-width:1;">
+                  <input type="text" class="form-control" name="phone" placeholder="电话" style="background-color:transparent; border-width:1;">
                 </div>
               </div>
               <div class="form-group">
@@ -547,12 +635,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </div>
             </form>
           </div>
-          <div id="Reader_del" style="display:none;">
-          	<h2 id="reader_del" style="font-weight: 400"> 读者删除 </h2>
-            <form class="form-horizontal" action="Reader_del" method="post">
+
+          <div id="reader_del" style="display:none;">
+            <h2 style="font-weight: 400"> 读者删除 </h2>
+            <form class="form-horizontal" action="Reader_del">
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">读者编号:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7"> <input type="text" class="form-control" name="reader_id" placeholder="读者编号" style="background-color:transparent; border-width:1;"> </div>
+              </div>
+              <div class="form-group" style="margin-bottom:5px">
+                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">读者姓名:</p></div>
+                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
+                  <input type="text" class="form-control" name="reader_name" placeholder="读者姓名" style="background-color:transparent; border-width:1;">
+                </div>
               </div>
               <div class="form-group">
                 <div class="col-md-offset-2 col-md-5 col-lg-offset-2 col-lg-5 col-sm-offset-5 col-sm-7 col-xs-offset-5 col-xs-7"> <button type="submit" class="btn" style="width:100%">删除</button> </div>
@@ -560,44 +655,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </form>
           </div>
         </div>
-        <div class="bs-docs-section">
-        	<div id="Borrow_manage" style="display:none;">
-        		<h1 id="borrow_manage" class="page-header"> 借阅管理 </h1>
-        		<from action="Borrow_rank" method="post">
-					<table>
-						<tr>
-							<td>搜索：</td>
-							<td>
-								<select name="kind">
-									<option value="book">图书</option>
-									<option value="journal">期刊</option>
-								</select>
-							</td>
-							<td>
-								<select name="subject">
-									<option value="science">科学</option>
-									<option value="computer">计算机</option>
-									<option value="math">数学</option>
-									<option value="english">英语</option>
-									<option value="politics">政治</option>
-									<option value="finance">金融</option>
-								</select>
-							</td>
-							<td><input type="submit" value="查询"></td>
-						</tr>
-					</table>
-				</from>
-        		<table class="table table-hover">
-					<tr>
-						<th>总借阅人数</th>
-						<th>总借阅数量</th>
-						<th>日借阅人数</th>
-						<th>日借阅数量</th>
-					</tr>
-				</table>
-        	</div>
+        <div class="bs-docs-section" id="borrow_manage_div" style="display:none;">
+          <h1 id="borrow_manage" class="page-header" style="display:none;"> 借阅管理 </h1>
         </div>
-      </div>
+       </div>
       </div>
     </div>
   </div>

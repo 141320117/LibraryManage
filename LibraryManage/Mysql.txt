@@ -17,7 +17,9 @@ subject varchar(20) not null,
 writer varchar(20) not null,
 publish_unit varchar(40),
 publish_place varchar(60),
-publish varchar(20)
+publish varchar(20),
+amount int not null,
+num int not null
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table journal(
@@ -27,7 +29,9 @@ subject varchar(20) not null,
 writer varchar(20) not null,
 publish_unit varchar(40),
 publish_place varchar(60),
-publish varchar(20)
+publish varchar(20),
+amount int not null,
+num int not null
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table reader(
@@ -45,7 +49,7 @@ reader_id bigint not null,
 borrow_date date not null,
 status varchar(10) not null,
 foreign key(book_id) references book(book_id) ON DELETE CASCADE ON UPDATE CASCADE,
-foreign key(reader_id) reference reader(reader_id) ON DELETE CASCADE ON UPDATE CASCADE
+foreign key(reader_id) references reader(reader_id) ON DELETE CASCADE ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table journal_borrow(
@@ -54,8 +58,8 @@ journal_id bigint not null,
 reader_id bigint not null,
 borrow_date date not null,
 status varchar(10) not null,
-foreign key(journal_id) references book(journal_id) ON DELETE CASCADE ON UPDATE CASCADE,
-foreign key(reader_id) reference reader(reader_id) ON DELETE CASCADE ON UPDATE CASCADE
+foreign key(journal_id) references journal(journal_id) ON DELETE CASCADE ON UPDATE CASCADE,
+foreign key(reader_id) references reader(reader_id) ON DELETE CASCADE ON UPDATE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table rule(

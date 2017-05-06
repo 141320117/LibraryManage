@@ -1,8 +1,17 @@
 package Action;
 
+import java.sql.Connection;
+import java.util.List;
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import DB.DbConn;
+import Model.book;
+
 public class Book extends ActionSupport{
+	private static Map session=ActionContext.getContext().getSession();
 	private static String book_id;
 	private static String book_name;
 	private static String subject;
@@ -12,37 +21,63 @@ public class Book extends ActionSupport{
 	private static String publish_date;
 	private static String reader_id;
 	private static String reader_name;
-	public static String search() {
-		if(!book_name.equals("")){
-			System.out.println(book_name);
+	public String search() {
+		DbConn dbc=new DbConn();
+		Connection conn=dbc.getConn();
+		List<book> list=dbc.book_search(book_name, subject);
+		if(list.size()>0){
+			session.put("book_search", list);
 			return "success";
+		}else{
+			this.addFieldError("book_borrow","无法找到该书籍");
+			return "error";
 		}
-		return "error";
 	}
 	public static String borrow() {
-		if(!book_id.equals("")&&!reader_id.equals("")){
+		DbConn dbc=new DbConn();
+		Connection conn=dbc.getConn();
+		if(dbc.book_borrow(book_id, reader_id)){
 			return "success";
+		}else{
+			return "error";
 		}
-		return "error";
 	}
 	public static String reback() {
-		if(!book_id.equals("")&&!reader_id.equals("")){
+		DbConn dbc=new DbConn();
+		Connection conn=dbc.getConn();
+		if(dbc.book_reback(book_id, reader_id)){
 			return "success";
+		}else{
+			return "error";
 		}
-		return "error";
 	}
 	public static String add() {
-		if(!book_name.equals("")){
+		book bk=new book();
+		bk.setBook_name(book_name);
+		bk.setWriter(writer);
+		bk.setSubject(subject);
+		bk.setPublish_unit(publish_unit);
+		bk.setPublish_place(publish_place);
+		bk.setPublish_date(publish_date);
+		DbConn dbc=new DbConn();
+		Connection conn=dbc.getConn();
+		if(dbc.book_add(bk)){
 			return "success";
+		}else{
+			return "error";
 		}
-		return "error";
 	}
 	public static String del() {
-		if(!book_name.equals("")){
+		DbConn dbc=new DbConn();
+		Connection conn=dbc.getConn();
+		if(dbc.book_del(book_id)){
 			return "success";
+		}else{
+			return "error";
 		}
-		return "error";
 	}
+	
+	
 	public void setBook_id(String book_id){
 		this.book_id=book_id;
 	}
@@ -70,6 +105,8 @@ public class Book extends ActionSupport{
 	public void setReader_name(String reader_name){
 		this.reader_name=reader_name;
 	}
+	
+	
 	public String getBook_id(){
 		return this.book_id;
 	}
