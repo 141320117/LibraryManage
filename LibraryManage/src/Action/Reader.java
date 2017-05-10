@@ -1,6 +1,12 @@
 package Action;
 
+import java.sql.Connection;
+import java.util.List;
+
 import com.opensymphony.xwork2.ActionSupport;
+
+import DB.*;
+import Model.*;
 
 public class Reader extends ActionSupport{
 	private static String reader_id;
@@ -9,19 +15,31 @@ public class Reader extends ActionSupport{
 	private static String id_card;
 	private static String phone;
 	public static String search(){
-		if(!reader_id.equals("")){
+		DbConn dbc=new DbConn();
+		Connection conn=dbc.getConn();
+		List<reader>list=dbc.reader_search(reader_id);
+		if(list.size()>0){
 			return "success";
 		}
 		return "error";
 	}
 	public static String add(){
-		if(!reader_name.equals("")&&!id_card.equals("")&&!phone.equals("")){
+		reader rr=new reader();
+		rr.setReader_name(reader_name);
+		rr.setSex(sex);
+		rr.setId_card(id_card);
+		rr.setPhone(phone);
+		DbConn dbc=new DbConn();
+		Connection conn=dbc.getConn();
+		if(dbc.reader_add(rr)){
 			return "success";
 		}
 		return "error";
 	}
 	public static String del(){
-		if(!reader_id.equals("")&&!reader_name.equals("")){
+		DbConn dbc=new DbConn();
+		Connection conn=dbc.getConn();
+		if(dbc.reader_del(reader_id)){
 			return "success";
 		}
 		return "error";

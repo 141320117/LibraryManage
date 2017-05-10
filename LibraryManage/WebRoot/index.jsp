@@ -287,7 +287,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2  col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:35px">类别:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <select name="book_subject" class="form-control">
+                  <select name="subject" class="form-control">
 								   <option value="science">科学</option>
 								   <option value="computer">计算机</option>
 								   <option value="math">数学</option>
@@ -375,7 +375,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:35px">类别:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <select name="book_subject" class="form-control">
+                  <select name="subject" class="form-control">
                    <option value="science">科学</option>
                    <option value="computer">计算机</option>
                    <option value="math">数学</option>
@@ -438,7 +438,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <div class="form-group" style="margin-bottom:5px">
                <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊类别:</p></div>
                <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                 <select name="journal_subject" class="form-control">
+                 <select name="subject" class="form-control">
                   <option value="science">科学</option>
                   <option value="computer">计算机</option>
                   <option value="math">数学</option>
@@ -527,7 +527,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <div class="form-group" style="margin-bottom:5px">
                 <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5"><p style="font-size: 20px;font-weight: 300;margin-top:3px;margin-left:25px">期刊类别:</p></div>
                 <div class="col-md-5 col-lg-5 col-sm-7 col-xs-7">
-                  <select name="journal_subject" class="form-control">
+                  <select name="subject" class="form-control">
                    <option value="science">科学</option>
                    <option value="computer">计算机</option>
                    <option value="math">数学</option>

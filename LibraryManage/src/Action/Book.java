@@ -59,6 +59,7 @@ public class Book extends ActionSupport{
 		bk.setPublish_unit(publish_unit);
 		bk.setPublish_place(publish_place);
 		bk.setPublish_date(publish_date);
+		//System.out.println(bk.getBook_name());
 		DbConn dbc=new DbConn();
 		Connection conn=dbc.getConn();
 		if(dbc.book_add(bk)){
@@ -96,8 +97,8 @@ public class Book extends ActionSupport{
 	public void setPublish_place(String publish_place){
 		this.publish_place=publish_place;
 	}
-	public void setPublish_date(String public_date){
-		this.publish_date=public_date;
+	public void setPublish_date(String publish_date){
+		this.publish_date=publish_date;
 	}
 	public void setReader_id(String reader_id){
 		this.reader_id=reader_id;
